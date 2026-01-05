@@ -1,0 +1,15 @@
+# From https://github.com/andrewl/uk-rail-schedule-api
+# Requires data/schedule.json to be downloaded separately
+
+services:
+  uk-rail-schedule-api:
+    container_name: uk-rail-schedule-api
+    build: .
+    ports:
+      - "3333:3333"
+    volumes:
+      - /media/uk-rail-schedule-api:/app/data
+    environment:
+      - TZ=Europe/London
+    restart: unless-stopped
+
